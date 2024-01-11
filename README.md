@@ -1,4 +1,4 @@
-# curso-react-2024
+# Curso React 2024
 
 # Objetivos de este repositorio
 
