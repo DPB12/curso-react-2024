@@ -2,7 +2,7 @@
 
 # Objetivos de este repositorio
 
-- Esta es un repositorio de carpetas donde estoy aprendiendo a trabajar con react con un proyecto de vite tambien uso tailwind para el diseño css
+- Este es un repositorio de carpetas donde estoy aprendiendo a trabajar con react con un proyecto de vite tambien uso tailwind para el diseño css
 
 # El orden de carpetas es tambien el orden en el que voy aprendiendo
 
@@ -22,6 +22,14 @@
    "cloned" del repositorio.
 4. Ejecutar los siguientes comandos:
 
+- Primer paso
+
 ```bash
 - npm install
+```
+
+- Segundo paso
+
+```bash
+- npm run dev
 ```
