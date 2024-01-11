@@ -1,6 +1,8 @@
 # curso-react-2024
 
-## Esta es un repositorio de carpetas donde estoy aprendiendo a trabajar con react con un proyecto de vite tambien uso tailwind para el diseño css
+# Objetivos de este repositorio
+
+## -Esta es un repositorio de carpetas donde estoy aprendiendo a trabajar con react con un proyecto de vite tambien uso tailwind para el diseño css
 
 # El orden de carpetas es tambien el orden en el que voy aprendiendo
 
