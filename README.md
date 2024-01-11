@@ -20,4 +20,6 @@
    "cloned" del repositorio.
 4. Ejecutar los siguientes comandos:
 
+```bash
 - npm install
+```
