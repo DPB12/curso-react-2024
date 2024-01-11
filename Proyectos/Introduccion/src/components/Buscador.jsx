@@ -6,21 +6,20 @@ const initialState = ["manzana", "pera", "naranja", "platano", "melon", "uva"];
 
 const Buscador = () => {
   const [searchItems, setSearchItems] = useState(initialState);
-  const [filteredItems, setFilteredItems] = useState(initialState);
+  // const [filteredItems, setFilteredItems] = useState(initialState);
 
   let search = [];
 
   function handleSearch(event) {
     event.preventDefault();
-    search = filteredItems.filter((fruta) =>
+    search = initialState.filter((fruta) =>
       fruta.toLowerCase().includes(event.target.value.toLowerCase())
     );
 
-    console.log(search);
     if (search.length > 0) {
       setSearchItems(search);
     } else {
-      setSearchItems(filteredItems);
+      setSearchItems(initialState);
     }
   }
 
