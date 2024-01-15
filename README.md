@@ -1,16 +1,16 @@
-# curso-react-2024
+# Curso React 2024
 
-# Objetivos de este repositorio
+## Objetivos de este repositorio.
 
 - Este es un repositorio de carpetas donde estoy aprendiendo a trabajar con react con un proyecto de vite tambien uso tailwind para el diseño css
 
-# El orden de carpetas es tambien el orden en el que voy aprendiendo
+## El orden de carpetas es tambien el orden en el que voy aprendiendo.
 
 1. Introduccion
 
 - En esta carpeta aprendo los hooks basicos de react como useState que fue el primero que aprendi
 
-# Pasos para ejecutar el proyecto en local:
+## Pasos para ejecutar el proyecto en local:
 
 1. Clonar este repo y descomprimirlo o bajarlo como zip,
 
