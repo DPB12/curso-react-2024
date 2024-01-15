@@ -1,5 +1,5 @@
 import { useState } from "react";
-import generateObjectWithId from "../helpers/generateObjectWithId";
+import generateId from "../../helpers/generateId";
 const initialTasks = [
   { id: 1, content: "Buy groceries", completed: false },
   { id: 2, content: "Take out the trash", completed: true },
@@ -17,8 +17,21 @@ const ToDoListBasicTailWindCss = () => {
   }
 
   function handleAddTask() {
-    const obj = generateObjectWithId(newTask);
-    setTasks([...tasks, obj]);
+    if (newTask.trim() !== "") {
+      const id = generateId();
+
+      const obj = {
+        id: id,
+        content: newTask.trim(),
+        completed: false,
+      };
+
+      setTasks([...tasks, obj]);
+      setNewTask("");
+    } else {
+      console.log("no puede estar vacio el input de la tarea");
+      return false;
+    }
   }
 
   function handleRemoveTask(taskId) {

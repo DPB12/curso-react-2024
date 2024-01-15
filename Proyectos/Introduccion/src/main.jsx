@@ -4,7 +4,7 @@ import "./index.css";
 import Inicio from "./Inicio.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Inicio />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Inicio />
+  // </React.StrictMode>
 );
