@@ -1,37 +1,45 @@
 import { useEffect, useState } from "react";
 
 const UseEffectBasic = () => {
-  const [count, setCount] = useState(0);
-  console.log("Use Effect Basic Rendered");
+  const [counter, setCounter] = useState(0);
 
-  //   useEffect(() => {
-  //     console.log("Use Effect clg");
-  //   });
+  console.log("hola desde el inicio");
 
-  //   useEffect(() => {
-  //     console.log("Use Effect clg");
-  //   }, []);
+  // useEffect(() => {
+  //   console.log("Hola desde el UseEffect");
+  // });
+  // cuando creo un useEffect sin el array de dependencias
+  // entonces se ejeturá cada vez que cambio cualquier estado.
+
+  // useEffect(() => {
+  //   console.log("Hola desde el UseEffect");
+  // }, []); // array de dependencias vacío.
+  // ejecuta lo que hay dentro sólo
+  // cuando se monta por primera vez un componente
+
+  // useEffect(() => {
+  //   console.log("Hola desde el UseEffect");
+  // }, [counter]);
 
   useEffect(() => {
-    console.log("Use Effect clg");
-  }, [count]);
+    console.log("hola desde UseEffect con return ");
 
-  //Funciones
-  function handleIncrementCount(val) {
-    setCount((prev) => prev + val);
+    return () => {
+      // Cuando se desmonte el componente se ejecutará
+      // lo que hay en el return .
+    };
+  }, []);
+
+  function handleIncrementCounter(value = 1) {
+    // setCounter((prev) => prev + 1);
+    setCounter(counter + value);
   }
 
   return (
     <>
-      <div className="bg-gray-400 p-8 rounded-md text-center gap-3">
-        <p className="text-2x1 font-bold mb-6"> Contador Nieto: {count}</p>
-        <button
-          className="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-800 mx-3"
-          onClick={() => handleIncrementCount(1)}
-        >
-          Incrementar
-        </button>
-      </div>
+      <h1>Ejemplo básico de contador</h1>
+      <h2>{counter}</h2>
+      <button onClick={() => handleIncrementCounter(5)}>Incrementar</button>
     </>
   );
 };

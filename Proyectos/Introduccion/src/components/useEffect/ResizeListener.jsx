@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const initialState = {
+const stateInitial = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
 
-const ReziceLitener = () => {
-  const [windowSize, setWindowSize] = useState(initialState);
+const ResizeListener = () => {
+  const [windowSize, setWindowSize] = useState(stateInitial);
 
   useEffect(() => {
     function handleResize() {
@@ -15,9 +15,11 @@ const ReziceLitener = () => {
         height: window.innerHeight,
       });
     }
-
+    // agrego un even listener para el evento de cambio de la ventana
     window.addEventListener("resize", handleResize);
+
     return () => {
+      // elimino el evento listener para evitar la fuga de memora
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -25,10 +27,10 @@ const ReziceLitener = () => {
   return (
     <div>
       <p>
-        el tamaño de la venta es: {windowSize.width} x {windowSize.height}
+        El tamaño de la ventana es: {windowSize.width} x {windowSize.height}
       </p>
     </div>
   );
 };
 
-export default ReziceLitener;
+export default ResizeListener;

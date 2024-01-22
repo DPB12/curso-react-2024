@@ -1,4 +1,4 @@
-const FetchGitHubUsers = async () => {
+const fetchGitHubUsers = async () => {
   const URL = "https://api.github.com/users";
   try {
     const response = await fetch(URL);
@@ -9,4 +9,4 @@ const FetchGitHubUsers = async () => {
   }
 };
 
-export default FetchGitHubUsers;
+export default fetchGitHubUsers;
