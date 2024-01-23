@@ -6,17 +6,48 @@ const URL = import.meta.env.VITE_API_URL;
 
 const PokeApi = () => {
   const [pokemons, setPokemons] = useState([]);
+  const [deleteAll, setDeleteAll] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectDelete, setSelectDelete] = useState(false);
 
   function handleDelete(id) {
     const updatePoke = pokemons.filter((poke) => poke.id !== id);
     setPokemons(updatePoke);
   }
 
+  function handleSelectDelete(e, id) {
+    if (e.target.checked === true) {
+      setDeleteAll([...deleteAll, id]);
+    } else {
+      setDeleteAll(deleteAll.filter((item) => item !== id));
+    }
+  }
+
+  function handleDeleteAll() {
+    if (deleteAll.length <= 0) {
+      console.log("No has seleccionado ninguna");
+      return;
+    }
+
+    let copyPoke = pokemons;
+
+    pokemons.map((poke, ind) => {
+      deleteAll.map((id) => {
+        console.log(poke.id, id);
+        if (poke.id === id) {
+          copyPoke.splice(ind, 1);
+        }
+      });
+    });
+
+    setPokemons(copyPoke);
+    setSelectDelete(!selectDelete);
+  }
+
   useEffect(() => {
     const getData = async () => {
       const data = await fetchPokeApi(URL);
-      console.log(data);
+      1;
 
       const pokemonsData = await Promise.all(
         data.map(async (poke) => {
@@ -44,11 +75,33 @@ const PokeApi = () => {
 
   return (
     <div className="flex flex-wrap justify-center mx-auto">
+      <div className="flex flex-col justify-center items-center">
+        <input
+          className="bg-blue-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-blue-700"
+          type="button"
+          value="Seleccionar"
+          onClick={() => setSelectDelete(!selectDelete)}
+        />
+        <input
+          className={`bg-red-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-red-700 ${
+            selectDelete ? "block" : "hidden"
+          }`}
+          type="button"
+          value="Borrar todos"
+          onClick={handleDeleteAll}
+        />
+      </div>
       {loading ? (
         <Spinner />
       ) : (
         pokemons.map((poke) => (
-          <Card key={poke.id} pokemon={poke} handleDelete={handleDelete} />
+          <Card
+            key={poke.id}
+            pokemon={poke}
+            handleDelete={handleDelete}
+            selectDelete={selectDelete}
+            handleSelectDelete={handleSelectDelete}
+          />
         ))
       )}
     </div>

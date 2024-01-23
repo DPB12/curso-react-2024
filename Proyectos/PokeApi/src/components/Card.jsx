@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Card = ({ pokemon, handleDelete }) => {
+const Card = ({ pokemon, handleDelete, selectDelete, handleSelectDelete }) => {
   const [isDelete, setIsDelete] = useState(false);
 
   function handleClickDelete() {
@@ -17,6 +17,13 @@ const Card = ({ pokemon, handleDelete }) => {
       } transition-transform duration-500 ease-in-out`}
     >
       <div className="flex flex-col w-full">
+        <input
+          className={`${selectDelete ? "block" : "hidden"}`}
+          type="checkbox"
+          name={pokemon.name}
+          id={pokemon.id}
+          onClick={(e) => handleSelectDelete(e, pokemon.id)}
+        />
         <img
           src={pokemon.img}
           alt={pokemon.name}
