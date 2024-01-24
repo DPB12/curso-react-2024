@@ -31,17 +31,31 @@ const PokeApi = () => {
 
     let copyPoke = pokemons;
 
-    pokemons.map((poke, ind) => {
-      deleteAll.map((id) => {
-        console.log(poke.id, id);
-        if (poke.id === id) {
-          copyPoke.splice(ind, 1);
-        }
-      });
+    deleteAll.map((pokemonId) => {
+      copyPoke = copyPoke.filter(
+        (pokemonOriginal) => pokemonOriginal.id !== pokemonId
+      );
     });
+
+    // deleteAll.map((id) => {
+    //   pokemons.map((poke, ind) => {
+    //     if (poke.id == id) {
+    //       copyPoke.splice(ind, 1);
+    //     }
+    //   });
+    // });
+    // ------------------ El indice en los maps acuerdate que varian y que por eso puede fallarrr ----------- //
+    // pokemons.map((poke, ind) => {
+    //   deleteAll.map((id) => {
+    //     if (poke.id === id) {
+    //       copyPoke.splice(ind, 1);
+    //     }
+    //   });
+    // });
 
     setPokemons(copyPoke);
     setSelectDelete(!selectDelete);
+    setDeleteAll([]);
   }
 
   useEffect(() => {
@@ -82,6 +96,7 @@ const PokeApi = () => {
           value="Seleccionar"
           onClick={() => setSelectDelete(!selectDelete)}
         />
+        <br />
         <input
           className={`bg-red-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-red-700 ${
             selectDelete ? "block" : "hidden"
