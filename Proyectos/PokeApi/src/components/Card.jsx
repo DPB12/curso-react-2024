@@ -12,7 +12,8 @@ const Card = ({ pokemon, handleDelete, selectDelete, handleSelectDelete }) => {
 
   return (
     <div
-      className={`max-w-xs rounded overflow-hidden shadow-md bg-white m-4 flex flex-col justify-center items-center transform ${
+      className={`max-w-xs rounded overflow-hidden shadow-md bg-stone-400 m-4 flex flex-col justify-center items-center transform 
+      ${
         isDelete ? "rotateY-180 scale-0" : "rotateY-0 scale-100"
       } transition-transform duration-500 ease-in-out`}
     >

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import fetchPokeApi from "../api/pokeApi";
 import Spinner from "../../../Peliculas/src/components/Spinner";
 import Card from "./Card";
+import Footer from "./Footer";
+import MainNav from "./MainNav";
 const URL = import.meta.env.VITE_API_URL;
 
 const PokeApi = () => {
@@ -81,45 +83,52 @@ const PokeApi = () => {
       );
 
       setPokemons(pokemonsData);
-      console.log(pokemons);
       setLoading(false);
     };
     getData();
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center mx-auto">
-      <div className="flex flex-col justify-center items-center">
-        <input
-          className="bg-blue-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-blue-700"
-          type="button"
-          value="Seleccionar"
-          onClick={() => setSelectDelete(!selectDelete)}
-        />
-        <br />
-        <input
-          className={`bg-red-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-red-700 ${
-            selectDelete ? "block" : "hidden"
-          }`}
-          type="button"
-          value="Borrar todos"
-          onClick={handleDeleteAll}
-        />
+    <>
+      <div className="w-screen flex flex-wrap justify-center z-40 my-4">
+        <MainNav />
       </div>
-      {loading ? (
-        <Spinner />
-      ) : (
-        pokemons.map((poke) => (
-          <Card
-            key={poke.id}
-            pokemon={poke}
-            handleDelete={handleDelete}
-            selectDelete={selectDelete}
-            handleSelectDelete={handleSelectDelete}
+
+      <div className="flex flex-wrap justify-center mx-auto mt-10">
+        <div className="flex flex-col justify-center items-center">
+          <input
+            className="bg-blue-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-blue-700"
+            type="button"
+            value="Seleccionar"
+            onClick={() => setSelectDelete(!selectDelete)}
           />
-        ))
-      )}
-    </div>
+          <br />
+          <input
+            className={`bg-red-500 text-white px-3 py-1 rounded-md mx-auto hover:bg-red-700 ${
+              selectDelete ? "block" : "hidden"
+            }`}
+            type="button"
+            value="Borrar todos"
+            onClick={handleDeleteAll}
+          />
+        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          pokemons.map((poke) => (
+            <Card
+              key={poke.id}
+              pokemon={poke}
+              handleDelete={handleDelete}
+              selectDelete={selectDelete}
+              handleSelectDelete={handleSelectDelete}
+            />
+          ))
+        )}
+      </div>
+
+      <Footer />
+    </>
   );
 };
 
