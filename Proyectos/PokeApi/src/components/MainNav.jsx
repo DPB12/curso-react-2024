@@ -1,4 +1,4 @@
-const MainNav = () => {
+const MainNav = ({ handleSearchPokemon }) => {
   return (
     <>
       <nav className="bg-black black:bg-gray-700 rounded-lg">
@@ -19,7 +19,7 @@ const MainNav = () => {
                   href="#"
                   className="text-gray-900 dark:text-white hover:underline"
                 >
-                  Company
+                  About
                 </a>
               </li>
               <li>
@@ -27,15 +27,7 @@ const MainNav = () => {
                   href="#"
                   className="text-gray-900 dark:text-white hover:underline"
                 >
-                  Team
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-900 dark:text-white hover:underline"
-                >
-                  Features
+                  user
                 </a>
               </li>
             </ul>
@@ -48,6 +40,7 @@ const MainNav = () => {
                   placeholder="Search"
                   aria-label="Search"
                   aria-describedby="button-addon1"
+                  onKeyUp={(e) => handleSearchPokemon(e)}
                 />
 
                 <button

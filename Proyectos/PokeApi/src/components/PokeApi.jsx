@@ -60,6 +60,19 @@ const PokeApi = () => {
     setDeleteAll([]);
   }
 
+  function handleSearchPokemon(e) {
+    const result = e.target.value;
+    let copyPoke = pokemons.filter((poke) =>
+      poke.name.includes(result.trim().toLowerCase())
+    );
+
+    if (copyPoke.length > 0) {
+      setPokemons(copyPoke);
+    } else {
+      setPokemons(pokemons);
+    }
+  }
+
   useEffect(() => {
     const getData = async () => {
       const data = await fetchPokeApi(URL);
@@ -91,7 +104,7 @@ const PokeApi = () => {
   return (
     <>
       <div className="w-screen flex flex-wrap justify-center z-40 my-4">
-        <MainNav />
+        <MainNav handleSearchPokemon={handleSearchPokemon} />
       </div>
 
       <div className="flex flex-wrap justify-center mx-auto mt-10">

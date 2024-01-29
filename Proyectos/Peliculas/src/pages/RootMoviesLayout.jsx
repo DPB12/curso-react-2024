@@ -1,11 +1,11 @@
+import { Outlet } from "react-router-dom";
+
 const RootMoviesLayout = () => {
   return (
     <>
-      {/* Aqui va el nav */}
-
-      {/* Aqui va el outlet */}
-
-      {/* Aqui va el footer */}
+      <div>aquí coloco el NAV</div>
+      <Outlet />
+      <div>aquí Footer</div>
     </>
   );
 };

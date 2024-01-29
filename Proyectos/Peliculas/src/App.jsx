@@ -1,26 +1,23 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootMoviesLayout from "./pages/RootMoviesLayout";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
-import MovieDetailsPage from "./pages/MovieDetailsPage ";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
+import RootMoviesLayout from "./pages/RootMoviesLayout";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      errorElement: <Error />,
       element: <RootMoviesLayout />,
+      errorElement: <Error />,
+
       children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/peliculas/:idU",
-          element: <MovieDetailsPage />,
-        },
+        { index: true, element: <Home /> },
+        // { path: "peliculas", element: <Usuarios /> },
+        { path: "peliculas/:idPelicula", element: <MovieDetailsPage /> },
       ],
     },
+    // { path: "/admin", element: <Admin /> },
   ]);
 
   return <RouterProvider router={router} />;
