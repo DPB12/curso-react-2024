@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const MovieCard = ({ movie }) => {
   const { id, title, poster_path, vote_average } = movie;
   const imageUrl = `https://image.tmdb.org/t/p/original${poster_path}`;
+  let navigate = useNavigate();
 
+  function handleClickDetails() {
+    navigate(`peliculas/${id}`);
+  }
   return (
     <>
       <div
@@ -22,6 +28,7 @@ const MovieCard = ({ movie }) => {
         <button
           className="hover:bg-sky-700 text-gray-50 bg-sky-800 py-2
         rounded-br-xl"
+          onClick={handleClickDetails}
         >
           Detalles
         </button>

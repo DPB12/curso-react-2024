@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Header from "../components/Header";
 
 const RootMoviesLayout = () => {
   return (
     <>
-      <div>aquí coloco el NAV</div>
+      <Header />
       <Outlet />
       <div>aquí Footer</div>
     </>
