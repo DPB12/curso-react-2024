@@ -6,6 +6,8 @@ import EjemploUseRef from "./components/EjemploUseRef";
 import EjemploUseRef2 from "./components/EjemploUseRef2";
 import EjemploUseRef3 from "./components/EjemploUseRef3";
 import EjemploUseContext from "./components/EjemploUseContext";
+import Componente1 from "./components/ejemploContext/components/Componente1";
+import Componente4 from "./components/ejemploContext/components/Componente4";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,7 +35,8 @@ function App() {
       <EjemploUseRef3 />
       <hr />
       <h1>Use Context</h1>
-      <EjemploUseContext />
+      <Componente1 />
+      <Componente4 />
     </>
   );
 }

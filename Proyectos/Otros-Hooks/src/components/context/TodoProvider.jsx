@@ -9,9 +9,9 @@ const initialState = [
 
 const TodoProvider = ({ childrem }) => {
   const [tasks, setTasks] = useState(initialState);
-
+  function deleteTask() {}
   return (
-    <TodoContext.Provider value={{ tasks, setTasks }}>
+    <TodoContext.Provider value={{ tasks, setTasks, deleteTask }}>
       {children}
     </TodoContext.Provider>
   );
